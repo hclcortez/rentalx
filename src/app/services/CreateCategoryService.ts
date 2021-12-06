@@ -1,4 +1,4 @@
-import { ICategoriesRepository } from "../repositories/ICategoriesRepository"
+import { ICategoriesRepository } from "../repositories/interfaces/ICategoriesRepository"
 
 interface IRequest {
     name: String;
@@ -19,7 +19,6 @@ class CreateCategoryService {
 
         this.categoriesReporitory.create({ name, description })
     }
-
 }
 
 export default CreateCategoryService
