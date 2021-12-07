@@ -3,10 +3,18 @@ import { ICreateSpecificationDTO, ISpecificationsRepository } from "./interfaces
 
 class SpecificationsRepository implements ISpecificationsRepository{
 
+    private static instance: SpecificationsRepository;
     private specifications: Specification[];
 
-    constructor(){
+    private constructor(){
         this.specifications = [];
+    }
+
+    public static getInstance():SpecificationsRepository{
+        if(!SpecificationsRepository.instance){
+            SpecificationsRepository.instance = new SpecificationsRepository()
+        }
+        return SpecificationsRepository.instance;
     }
 
     findByName(name: String): Specification {
