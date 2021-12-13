@@ -1,0 +1,31 @@
+Show all containers up
+#docker ps 
+    -a all containers(up and down)
+
+Remove container
+#docker rm ID_CONTAINER
+
+
+Start a container
+#docker start CONTAINER_NAME
+
+Stop a container
+#docker stop CONTAINER_NAME
+
+Star container
+#docker-compose up 
+    -d (background)
+
+#docker-compose stop
+#docker-compose start
+
+
+#Remove container/services
+#docker-compose down
+
+#docker exec -it (ID or name container) /bin/bash
+
+#docker logs CONTAINER_NAME
+    -f
+
+
