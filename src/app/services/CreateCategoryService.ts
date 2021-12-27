@@ -9,8 +9,9 @@ class CreateCategoryService {
 
     constructor(private categoriesReporitory: ICategoriesRepository) { }
 
-    execute({ name, description }: IRequest): void {
-        const categoryAlreadyExists = this.categoriesReporitory.findByName(name)
+    async execute({ name, description }: IRequest): Promise<void> {
+        console.log("Category Service")
+        const categoryAlreadyExists = await this.categoriesReporitory.findByName(name)
 
         if (categoryAlreadyExists) {
             throw new Error("Category already exists!")

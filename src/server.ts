@@ -4,6 +4,7 @@ import  swaggerUi  from 'swagger-ui-express';
 
 import swaggerFile from '../config/swagger.json'
 
+import "./database"
 
 const app = express()
 app.use(express.json())

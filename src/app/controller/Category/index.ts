@@ -5,14 +5,23 @@ import { CreateCategoryController } from "./CreateCategoryController";
 import { ImportCategoryController } from "./ImportCategoryController";
 import { ListCategoryController } from "./ListCategoryController";
 
+const createCategoryController = () => {
+    const categoryRepository = new CategoryRepository()
+    const createCategoryService = new CreateCategoryService(categoryRepository);
+    const createCategoryController = new CreateCategoryController(createCategoryService);
+    return createCategoryController;
+}
 
-const createCategoryService = new CreateCategoryService(CategoryRepository.getInstance());
-const createCategoryController = new CreateCategoryController(createCategoryService);
 
 
-const listCategoryController = new ListCategoryController(CategoryRepository.getInstance())
 
-const importeCategory = new ImportCategory(CategoryRepository.getInstance())
-const importeCategoryController = new ImportCategoryController(importeCategory);
+//const listCategoryController = new ListCategoryController(CategoryRepository.getInstance())
 
-export { listCategoryController, createCategoryController, importeCategoryController };
+//const importeCategory = new ImportCategory(CategoryRepository.getInstance())
+//const importeCategoryController = new ImportCategoryController(importeCategory);
+
+// listCategoryController
+// createCategoryController
+// importeCategoryController
+
+export { createCategoryController };
