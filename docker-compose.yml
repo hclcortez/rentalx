@@ -1,9 +1,9 @@
 version: '3.7'
 
 services:
-  database:
+  database_rental:
     image: postgres
-    container_name: database
+    container_name: database_rental
     restart: always
     ports:
       - 5432:5432
@@ -13,7 +13,8 @@ services:
       - POSTGRES_DB=rentalx
     volumes:
       - pgdata:/data/postgres
-    network_mode: host
+
+      
   app:
     build: .
     container_name: rentalx
@@ -21,7 +22,10 @@ services:
       - 3333:3333
     volumes:
       - .:/usr/app
-    network_mode: host
+    links:
+      - database_rental
+    depends_on:
+      - database_rental
 
 volumes:
   pgdata:

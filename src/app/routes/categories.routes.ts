@@ -1,17 +1,18 @@
 import { request, response, Router } from "express";
 import { v4 as uuidv4 } from 'uuid';
-import { createCategoryController } from "../controller/Category";
+import { CreateCategoryController } from "../controller/Category/CreateCategoryController";
 import multer from "multer";
+import { CreateSpecificationController } from "../controller/Specification/CreateSpecificationController";
 
 const upload = multer({
     dest: "./tmp"
 });
 
+const createCategoryController = new CreateCategoryController()
 const categoriesRoutes = Router()
 
 categoriesRoutes.post("/", (request, response) => {
-    console.log('Categories Route')
-    createCategoryController().handle(request, response)
+    createCategoryController.handle(request, response)
 })
 
 // categoriesRoutes.get("/", (request, response) => {

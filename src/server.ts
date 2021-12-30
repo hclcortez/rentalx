@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import express, { request } from 'express'; 
 import routes from './app/routes';
 import  swaggerUi  from 'swagger-ui-express';
@@ -5,6 +6,7 @@ import  swaggerUi  from 'swagger-ui-express';
 import swaggerFile from '../config/swagger.json'
 
 import "./database"
+import "./shared/conteiner"
 
 const app = express()
 app.use(express.json())
@@ -17,4 +19,4 @@ app.get("/", (request, response) => {
 app.use(routes)
 
 
-app.listen(3000, () => console.log('Server is running!'));
+app.listen(3333, () => console.log('Server is running!'));
