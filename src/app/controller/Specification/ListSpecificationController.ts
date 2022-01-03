@@ -1,15 +1,16 @@
 import { Request, Response } from "express";
-import { SpecificationsRepository } from "../../repositories/SpecificationsRepository";
+import { container } from "tsyringe";
+import ListSpecificationServices from "../../services/ListSpecificationServices";
+
 
 class ListSpecificationController {
 
-    constructor(private specificationRepository: SpecificationsRepository) { }
-
-    handle(request: Request, response: Response): Response {
-        const specifications = this.specificationRepository.list();
+    async handle(request: Request, response: Response): Promise<Response> {
+        const listSpecificationService = container.resolve(ListSpecificationServices)
+        const specifications = await listSpecificationService.execute();
         return response.json(specifications);
     }
 
 }
 
-export { ListSpecificationController }
+export default ListSpecificationController 
