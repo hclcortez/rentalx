@@ -4,14 +4,13 @@ import { container } from "tsyringe"
 
 class CreateCategoryController {
 
-    handle(request: Request, response: Response): Response {
+    async handle(request: Request, response: Response): Promise<Response> {
         const { name, description } = request.body;
-
         const createCategoryService = container.resolve(CreateCategoryService) 
-        createCategoryService.execute({ name, description })
+        await createCategoryService.execute({ name, description })
         return response.status(201).send();
     }
 
 }
 
-export { CreateCategoryController }
+export default  CreateCategoryController

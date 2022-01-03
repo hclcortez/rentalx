@@ -15,7 +15,6 @@ class CreateCategoryService {
     ) { }
 
     async execute({ name, description }: IRequest): Promise<void> {
-        console.log("Category Service")
         const categoryAlreadyExists = await this.categoriesReporitory.findByName(name)
 
         if (categoryAlreadyExists) {
