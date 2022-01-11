@@ -1,15 +1,16 @@
 import User from "../../model/User";
 
 interface ICreateUserTDO {
-    name: String;
-    email: String;
-    password: String;
-    driver_license: String;
+    name: string;
+    email: string;
+    password: string;
+    driver_license: string;
 }
 
 interface IUsersRepository {
     create(data: ICreateUserTDO): Promise<void>;
-    findByEmail(email: String): Promise<User>;
+    findByEmail(email: string): Promise<User>;
+    findById(id: string): Promise<User>;
 }
 
 export { ICreateUserTDO, IUsersRepository }

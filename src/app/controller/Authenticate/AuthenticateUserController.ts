@@ -5,7 +5,6 @@ import AuthenticateService from "../../services/AuthenticateService";
 class AuthenticateUserController {
 
     async handle(request: Request, response: Response): Promise<Response> {
-        console.log("Passou aqui")
         const { password, email } = request.body;
 
         const authenticateService = container.resolve(AuthenticateService);

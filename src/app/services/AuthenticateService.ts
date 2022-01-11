@@ -28,15 +28,14 @@ class AuthenticateService {
 
     async execute({ email, password }: IRequest): Promise<IReseponse> {
         const user = await this.userRepository.findByEmail(email);
-
         if (!user) {
-            throw new Error("E-mail or password incorrect!")
+            throw new Error("E-mail or password incorrect!..")
         }
 
         const passwordMatch = await compare(password, user.password);
 
         if (!passwordMatch) {
-            throw new Error("E-mail or password incorrect!")
+            throw new Error("E-mail or password incorrect!!")
         }
 
         const token = sign({}, "hashExemple", {
