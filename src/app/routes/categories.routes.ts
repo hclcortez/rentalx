@@ -1,6 +1,5 @@
-import { request, response, Router } from "express";
+import { Router } from "express";
 import multer from "multer";
-import { container } from "tsyringe";
 
 import  CreateCategoryController  from "../controller/Category/CreateCategoryController";
 import  ListCategoryController  from "../controller/Category/ListCategoryController";
@@ -21,4 +20,4 @@ categoriesRoutes.get("/", listCategoryController.handle)
 //     importeCategoryController.handle(request, response);
 // })
 
-export { categoriesRoutes }
+export default categoriesRoutes

@@ -12,4 +12,4 @@ specificationRoutes.get("/", listSpecificationController.handle);
 
 specificationRoutes.post("/", createSpecificationController.handle)
 
-export { specificationRoutes }
+export default specificationRoutes 
