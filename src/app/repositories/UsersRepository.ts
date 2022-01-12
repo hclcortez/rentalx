@@ -16,16 +16,25 @@ class UsersRepository implements IUsersRepository {
     }
 
     async findByEmail(email: string): Promise<User> {
-        const user = await this.repository.findOne(email);
+        const user = await this.repository.findOne({email});
         return user;
     }
 
-    async create(data: ICreateUserTDO): Promise<void> {
+    async create({
+        name,
+        email,
+        driver_license,
+        password,
+        avatar,
+        id
+    }: ICreateUserTDO): Promise<void> {
         const user = this.repository.create({
-            name: data.name,
-            email: data.email,
-            password: data.password,
-            driver_license: data.driver_license
+            name,
+            email,
+            password,
+            driver_license,
+            avatar,
+            id
         })
 
         await this.repository.save(user);

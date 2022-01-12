@@ -50,7 +50,6 @@ class AuthenticateService {
                 email: user.email
             }
         }
-
         return userLogged;
 
     }
